@@ -43,7 +43,7 @@ const Overlay: FC<OverlayProps> = ({}) => {
     <div className="">
       <h1 className="font-bold italic text-black text-[150px] leading-none absolute top-20 left-16 w-72">
         {trails.map((props,index) => (
-          <animated.div key={index} style={props}>Let's Take Off!</animated.div>
+          <animated.div key={index} style={props}>Let&apos;s Take Off!</animated.div>
         ))}
       </h1>
       <animated.button style={{...springTransition}} className="absolute bottom-32 rounded bg-gradient-to-r from-amber-400 to-[#FFA500] font-bold flex items-center justify-center gap-4 text-xl py-3 left-16 w-72">
@@ -56,8 +56,8 @@ const Overlay: FC<OverlayProps> = ({}) => {
         <h3 className="font-bold text-xl">Boeing-Stearman Model 75</h3>
         <p>
           7 cylinder 220 HP Continental R-670-5 radial engine pulled by a
-          Sensenich wooden propeller. Most still-airworthy Boeing-Stearman's now
-          have higher-performance metal propellers, like Capt. Walker's, which
+          Sensenich wooden propeller. Most still-airworthy Boeing-Stearman&apos;s now
+          have higher-performance metal propellers, like Capt. Walker&apos;s, which
           has a 102-inch diameter ground-adjustable McCauley propeller.
         </p>
       </animated.div>
