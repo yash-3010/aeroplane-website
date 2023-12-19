@@ -1,0 +1,11 @@
+Model Information:
+* title:	AeroPlane
+* source:	https://sketchfab.com/3d-models/aeroplane-74eec0bc379745cbba36a299bc578735
+* author:	NOva (https://sketchfab.com/n0va)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "AeroPlane" (https://sketchfab.com/3d-models/aeroplane-74eec0bc379745cbba36a299bc578735) by NOva (https://sketchfab.com/n0va) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
