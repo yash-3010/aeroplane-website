@@ -58,14 +58,14 @@
           camera={{ fov: 75, near: 0.1, far: 1000, position: [2, 2.5, 3.5] }}
           className="h-xl w-xl"
         >
-          <ambientLight intensity={1}/>
-          {/* <directionalLight position={[5, 10, 5]} intensity={0.5} /> */}
-          {/* <spotLight
+          <ambientLight intensity={0.3}/>
+          <directionalLight position={[5, 10, 5]} intensity={0.5} />
+          <spotLight
             position={[10, 10, 10]}
             angle={0.5}
             intensity={1}
             penumbra={0.5}
-          /> */}
+          />
           <MeshComponent />
           {/* <PlaneComponent /> */}
           <OrbitControls />
