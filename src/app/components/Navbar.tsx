@@ -1,14 +1,20 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GrInstagram, GrLinkedin, GrTwitter, GrYoutube } from "react-icons/gr";
 import { FaPlaneUp } from "react-icons/fa6";
-import { animated, useSpring } from '@react-spring/web'
+import { animated, useSpring } from "@react-spring/web";
+import { useRouter } from "next/navigation";
+import { GlobalContext } from "../context/user";
+import Link from "next/link";
+import { FaShoppingCart } from "react-icons/fa";
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
+  const router = useRouter();
+
+  const { user, logout } = useContext<any>(GlobalContext);
 
   const [open, setopen] = useState(false);
   const springsR = useSpring({
@@ -25,35 +31,71 @@ const Navbar: FC<NavbarProps> = ({}) => {
     delay: 500,
   });
 
-
   return (
-    <nav className="absolute top-0 z-10 inset-x-0">
+    <nav className="absolute top-0 z-10 inset-x-0 ">
       <div className="max-w-[1400px] mx-2 md:mx-auto relative flex items-center justify-between px-4 py-1">
-        <animated.div style={{...springsL}} className="flex items-center flex-shrink-0 cursor-pointer mr-6 gap-3">
-          <span className="font-semibold text-xl tracking-tight">
-            <FaPlaneUp />
-          </span>
-          <span className="font-semibold text-xl tracking-tight">Company</span>
+        <animated.div
+          style={{ ...springsL }}
+        >
+          <Link className="flex items-center flex-shrink-0 cursor-pointer mr-6 gap-3" href="/">
+            <span className="font-semibold text-xl tracking-tight">
+              <FaPlaneUp />
+            </span>
+            <span className="font-semibold text-xl tracking-tight">
+              Vimaneuver
+            </span>
+          </Link>
         </animated.div>
 
-        <animated.div style={{...springsM}} className="hidden md:flex font-semibold">
-          <button className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer">Home</button>
-          <button className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer">About</button>
-          <button className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer">Contact</button>
+        <animated.div
+          style={{ ...springsM }}
+          className="hidden md:flex font-semibold"
+        >
+          <button className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer">
+            Home
+          </button>
+          <button className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer">
+            About
+          </button>
+          <button className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer">
+            Contact
+          </button>
         </animated.div>
-        <animated.div style={{...springsR}} className="hidden md:flex gap-10 text-xl">
-          <button className="flex items-center hover:scale-110 transition-all ease-in-out duration-100">
-            <GrYoutube />
-          </button>
-          <button className="flex items-center hover:scale-110 transition-all ease-in-out duration-100">
-            <GrTwitter />
-          </button>
-          <button className="flex items-center hover:scale-110 transition-all ease-in-out duration-100">
-            <GrInstagram />
-          </button>
-          <button className="flex items-center hover:scale-110 transition-all ease-in-out duration-100 delay-75">
-            <GrLinkedin />
-          </button>
+        <animated.div
+          style={{ ...springsR }}
+          className="hidden md:flex font-semibold"
+        >
+          {!user ? (
+            <div>
+              <button
+                onClick={() => router.push("/auth/login")}
+                className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => router.push("/auth/signup")}
+                className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer"
+              >
+                Signup
+              </button>
+            </div>
+          ) : (
+            <div className="flex">
+              <button
+                onClick={() => router.push("/cart")}
+                className="py-3 px-5 hover:border-b-2 flex gap-2 items-center border-b-black hover:cursor-pointer"
+              >
+                Cart <FaShoppingCart />
+              </button>
+              <button
+                onClick={logout}
+                className="py-3 px-5 hover:border-b-2 border-b-black hover:cursor-pointer"
+              >
+                SignOut
+              </button>
+            </div>
+          )}
         </animated.div>
 
         {/* mobile view */}
@@ -68,7 +110,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             <GiHamburgerMenu />
           </button>
         </div>
-        <div
+        {/* <div
           className={`${
             open ? "translate-x-0" : "translate-x-full"
           } w-full absolute top-[42px] md:hidden transition-all ease-in-out duration-100 inset-x-0 bg-black z-10`}
@@ -84,7 +126,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
               Contact
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
