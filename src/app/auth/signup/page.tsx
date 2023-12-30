@@ -2,7 +2,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Signup from "@/app/components/Signup";
-import Test from "@/app/components/Test";
 
 export default async function getServerSideProps() {
   
