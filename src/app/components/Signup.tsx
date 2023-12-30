@@ -204,7 +204,7 @@ const Signup = () => {
             />
             <label className="inline-block text-black pl-[0.15rem] hover:cursor-pointer">
               By signing up, you are creating a Vimaneuver account, and you
-              agree to Vimaneuver's{" "}
+              agree to Vimaneuver&apos;s{" "}
               <span className="text-blue-500">Terms of Use</span> and{" "}
               <span className="text-blue-500">Privacy Policy</span>.
             </label>

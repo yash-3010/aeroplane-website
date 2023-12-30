@@ -200,7 +200,7 @@ const Login = () => {
         </button>
 
         <p className="mt-4 text-sm text-center text-neutral-500">
-          Don't have an account yet?{" "}
+          Don&apos;t have an account yet?{" "}
           <Link
             className="text-primary text-blue-500 font-semibold transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700"
             href="/auth/signup"
