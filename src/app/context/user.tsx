@@ -1,11 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createContext, use, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Database } from "../../../types/supabase";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import toast from "react-hot-toast";
-import { to } from "@react-spring/web";
 
 export const GlobalContext = createContext({});
 
@@ -179,7 +178,7 @@ const Provider = ({ children }: UserProviderProps) => {
   const forgotPassword = async (email: string) => {
     try {
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: `${location.origin}/resetPassword`,
+        redirectTo: `${window.location.href}resetPassword`,
       });
 
       if (error) {
