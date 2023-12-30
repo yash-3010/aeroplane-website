@@ -178,7 +178,7 @@ const Provider = ({ children }: UserProviderProps) => {
   const forgotPassword = async (email: string) => {
     try {
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.href}resetPassword`,
+        redirectTo: `${location.origin}/auth/reset`,
       });
 
       if (error) {
