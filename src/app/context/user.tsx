@@ -19,9 +19,10 @@ const Provider = ({ children }: UserProviderProps) => {
   const [user, setuser] = useState<any>(null);
   const [authenticating, setauthenticating] = useState<boolean>(false);
 
+  const supabaseClient = createClientComponentClient<Database>();
+
   const getCurrentSession = async () => {
-    "use server";
-    const supabaseClient = createClientComponentClient<Database>();
+    'use server'
     const res = await supabaseClient.auth.getSession();
 
     if (res.data.session) {
@@ -33,8 +34,6 @@ const Provider = ({ children }: UserProviderProps) => {
   };
 
   const getCurrentUser = async () => {
-    "use server";
-    const supabaseClient = createClientComponentClient<Database>();
     const res = await supabaseClient.auth.getUser();
 
     if (res.data) {
@@ -52,9 +51,7 @@ const Provider = ({ children }: UserProviderProps) => {
   };
 
   const logout = async () => {
-    "use server";
     try {
-      const supabaseClient = createClientComponentClient<Database>();
       const { error } = await supabaseClient.auth.signOut();
       if (error) {
         throw error;
@@ -68,9 +65,7 @@ const Provider = ({ children }: UserProviderProps) => {
   };
 
   const login = async (email: string, password: string) => {
-    "use server";
     try {
-      const supabaseClient = createClientComponentClient<Database>();
       const { error } = await supabaseClient.auth.signInWithPassword({
         email,
         password,
@@ -89,9 +84,7 @@ const Provider = ({ children }: UserProviderProps) => {
   };
 
   const googleLogin = async () => {
-    "use server";
     try {
-      const supabaseClient = createClientComponentClient<Database>();
       const { error } = await supabaseClient.auth.signInWithOAuth({
         provider: "google",
         options: {
@@ -110,9 +103,7 @@ const Provider = ({ children }: UserProviderProps) => {
   };
 
   const signup = async (email: string, password: string) => {
-    "use server";
     try {
-      const supabaseClient = createClientComponentClient<Database>();
       const { error } = await supabaseClient.auth.signUp({
         email,
         password,
