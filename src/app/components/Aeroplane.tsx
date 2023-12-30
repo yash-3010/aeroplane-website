@@ -45,7 +45,6 @@ function MeshComponent() {
   );
 }
 
-// Memoize the MeshComponent to prevent unnecessary re-renders
 const MemoizedMeshComponent = React.memo(MeshComponent);
 
 export function Aeroplane() {
