@@ -182,12 +182,12 @@ const Login = () => {
             </label>
           </div>
 
-          <a
-            href="#!"
+          <Link
+            href="/forgotPassword"
             className="text-primary text-blue-500 font-semibold transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700"
           >
             Forgot password?
-          </a>
+          </Link>
         </div>
 
         <button
