@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { FaPlaneUp } from "react-icons/fa6";
 import { GlobalContext } from "../context/user";
 
-const page = () => {
+const Page = () => {
   const { resetPassword, setauthenticating, authenticating } =
     useContext<any>(GlobalContext);
 
@@ -155,4 +155,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

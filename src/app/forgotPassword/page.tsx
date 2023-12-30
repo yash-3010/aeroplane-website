@@ -7,7 +7,7 @@ import { FaPlaneUp } from "react-icons/fa6";
 import { GlobalContext } from "../context/user";
 import toast from "react-hot-toast";
 
-const page = () => {
+const Page = () => {
   const [email, setemail] = useState<string>("");
 
   const { forgotPassword, setauthenticating, authenticating } =
@@ -53,7 +53,7 @@ const page = () => {
             Forgot your password?
           </h1>
           <p className="font-light text-gray-500">
-            Don't fret! Just type in your email and we will send you a link to
+            Don&apos;t fret! Just type in your email and we will send you a link to
             reset your password!
           </p>
           <div className="mt-4 space-y-4 lg:mt-5 md:space-y-5">
@@ -101,4 +101,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
