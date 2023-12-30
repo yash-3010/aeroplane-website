@@ -22,7 +22,6 @@ const Provider = ({ children }: UserProviderProps) => {
   const supabaseClient = createClientComponentClient<Database>();
 
   const getCurrentSession = async () => {
-    'use server'
     const res = await supabaseClient.auth.getSession();
 
     if (res.data.session) {
