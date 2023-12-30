@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Signup from "@/app/components/Signup";
 
 export default async function getServerSideProps() {
+  'use server'
   
   const supabase = createServerComponentClient({ cookies })
   const { data } = await supabase.auth.getSession();
