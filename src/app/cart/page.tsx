@@ -1,14 +1,15 @@
-"use client";
-
-import React from 'react'
+import type { Metadata } from 'next'
+import ShoppingCart from '../components/Cart'
+ 
+export const metadata: Metadata = {
+  title: 'cart',
+  description: '...',
+}
 
 const page = async () => {
 
-
   return (
-    <div className='h-screen flex justify-center items-center'>
-        <h1>cart</h1>
-    </div>
+    <ShoppingCart/>
   )
 }
 

@@ -8,7 +8,7 @@ import { Mesh } from "three";
 import { useSpring, animated } from "@react-spring/three";
 
 function MeshComponent() {
-  const fileUrl = "/aeroplane/scene.gltf";
+  const fileUrl = "https://pcauluwyrqzferpqtvjx.supabase.co/storage/v1/object/public/airplane-gltf/boeing-sterman-model-75/scene.gltf";
   const mesh = useRef<Mesh>(null!);
   const gltf = useLoader(GLTFLoader, fileUrl);
   const [active, setActive] = useState(false);
