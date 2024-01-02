@@ -9,7 +9,145 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      [_ in never]: never
+      Airplanes: {
+        Row: {
+          category_id: string
+          created_at: string
+          description: string
+          gltf: string
+          id: string
+          image: string
+          name: string
+          price: number
+          stock: number
+        }
+        Insert: {
+          category_id: string
+          created_at?: string
+          description: string
+          gltf: string
+          id?: string
+          image: string
+          name: string
+          price: number
+          stock: number
+        }
+        Update: {
+          category_id?: string
+          created_at?: string
+          description?: string
+          gltf?: string
+          id?: string
+          image?: string
+          name?: string
+          price?: number
+          stock?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Airplanes_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "Categories"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      Categories: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      Order_Items: {
+        Row: {
+          aeroplane_id: string
+          created_at: string
+          id: string
+          order_id: string
+          price: number
+          quantity: number
+        }
+        Insert: {
+          aeroplane_id: string
+          created_at?: string
+          id?: string
+          order_id: string
+          price: number
+          quantity: number
+        }
+        Update: {
+          aeroplane_id?: string
+          created_at?: string
+          id?: string
+          order_id?: string
+          price?: number
+          quantity?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Order_Items_aeroplane_id_fkey"
+            columns: ["aeroplane_id"]
+            isOneToOne: false
+            referencedRelation: "Airplanes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Order_Items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "Orders"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      Orders: {
+        Row: {
+          created_at: string
+          id: string
+          order_date: string
+          status: string
+          total_price: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          order_date: string
+          status?: string
+          total_price: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          order_date?: string
+          status?: string
+          total_price?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Orders_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

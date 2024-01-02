@@ -8,10 +8,13 @@ import { useRouter } from "next/navigation";
 import { GlobalContext } from "../context/user";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
+import { useCart } from "../context/cart";
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
+  const cart = useCart();
+
   const router = useRouter();
 
   const { user, logout } = useContext<any>(GlobalContext);
@@ -34,10 +37,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <nav className="absolute top-0 z-10 inset-x-0 ">
       <div className="max-w-[1400px] mx-2 md:mx-auto relative flex items-center justify-between px-4 py-1">
-        <animated.div
-          style={{ ...springsL }}
-        >
-          <Link className="flex items-center flex-shrink-0 cursor-pointer mr-6 gap-3" href="/">
+        <animated.div style={{ ...springsL }}>
+          <Link
+            className="flex items-center flex-shrink-0 cursor-pointer mr-6 gap-3"
+            href="/"
+          >
             <span className="font-semibold text-xl tracking-tight">
               <FaPlaneUp />
             </span>
@@ -86,7 +90,13 @@ const Navbar: FC<NavbarProps> = ({}) => {
                 onClick={() => router.push("/cart")}
                 className="py-3 px-5 hover:border-b-2 flex gap-2 items-center border-b-black hover:cursor-pointer"
               >
-                Cart <FaShoppingCart />
+                Cart{" "}
+                <span className="relative">
+                  <FaShoppingCart />
+                  {cart.cartSize!==0 && <span className="flex-shrink-0 flex-grow-0 w-full h-full bg-red-600 rounded-full absolute -top-2 text-xs flex justify-center items-center -right-4 text-white">
+                    {cart.cartSize}
+                  </span>}
+                </span>
               </button>
               <button
                 onClick={logout}

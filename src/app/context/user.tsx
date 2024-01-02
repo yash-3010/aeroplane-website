@@ -209,7 +209,9 @@ const Provider = ({ children }: UserProviderProps) => {
             <p className="font-medium">
               Please check your email to reset your password
             </p>
-            <p>Follow the instruction given in the mail to create new password</p>
+            <p>
+              Follow the instruction given in the mail to create new password
+            </p>
           </div>
           <div className="flex">
             <a
@@ -246,10 +248,11 @@ const Provider = ({ children }: UserProviderProps) => {
     }
   };
 
-  
-  const resetPassword = async ( newPassword: string) => {
+  const resetPassword = async (newPassword: string) => {
     try {
-      const { error } = await supabaseClient.auth.updateUser({ password: newPassword });
+      const { error } = await supabaseClient.auth.updateUser({
+        password: newPassword,
+      });
       if (error) {
         throw error;
       }
